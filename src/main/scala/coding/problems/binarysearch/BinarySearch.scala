@@ -42,6 +42,9 @@ class BinarySearch {
    *
    * For tail recursion function the following package to imported: scala.annotation.tailrec
    *
+   * Time complexity: ?
+   * Space complexity: ?
+   *
    * @param nums       list of integer numbers
    * @param searchItem element to be searched
    * @return index of the searchItem, if found. Otherwise, returns -1
