@@ -39,7 +39,7 @@ class Factorial {
 }
 
 object Factorial extends App {
-  val factorial = new Factorial()
+  val factorial = new Factorial
 
   println(factorial.findFactorialUsingRecursive(5))
   println(factorial.findFactorialUsingBruteForce(5))
