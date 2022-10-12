@@ -54,4 +54,8 @@ object ArraysExercises extends App{
   // Appending string item to a string array
   (fruits :+ "Papaya").foreach(print)  // "Papaya" won't be appended to the immutable fruits variable
   print("\n"); fruits.foreach(print)
+
+  // Iterating string array using map function
+  println("\nIterating string array using map function\n")
+  fruits.map(print)
 }
