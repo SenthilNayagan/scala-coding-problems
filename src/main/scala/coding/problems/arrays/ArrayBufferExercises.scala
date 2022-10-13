@@ -6,13 +6,14 @@ import scala.collection.mutable.ArrayBuffer
  * ArrayBuffer exercises
  *
  * Unlike Array, ArrayBuffer size can grow.
+ * To use ArrayBuffer, we need to import scala.collection.mutable.ArrayBuffer.
  */
 object ArrayBufferExercises extends App {
-  val arrayBuffer:ArrayBuffer[Int] = ArrayBuffer(0, 1, 2, 3, 4, 5, 6)
-
   // Define empty ArrayBuffer
   val strings = ArrayBuffer[String]()
   val ints = ArrayBuffer[Int]()
+
+  val arrayBuffer:ArrayBuffer[Int] = ArrayBuffer(0, 1, 2, 3, 4, 5, 6)
 
   // map functions
   arrayBuffer.map(_ * 2).foreach(print)
