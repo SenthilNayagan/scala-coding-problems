@@ -11,7 +11,7 @@ package coding.problems.arrays
  * Unlike Array, ArrayBuffer's size can change.
  * To use ArrayBuffer, we need to import scala.collection.mutable.ArrayBuffer.
  */
-object ArraysExercises extends App{
+object ArraysExercises extends App {
   // Declare array of integers
   var numbers: Array[Int] = Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
@@ -28,6 +28,10 @@ object ArraysExercises extends App{
   numbers.map(_ * 2).foreach(print)  // Double each integer item in an array without the need of any variable.
   val doubled_numbers = numbers.map(x => x * 2)  // Other way of doing the same, but with a new variable.
   print("\nDoubled items in an array\n"); doubled_numbers.foreach(print)
+
+  // Use parenthesis to add one or more expressions
+  print("\n"); numbers.map({print("Hello"); _ * 3}).foreach(print)
+  print("\n"); numbers.map{print("Hello"); _ * 3}.foreach(print)  // Scala lets us omitting the () as well
 
   // Adding two arrays
   val numSet1: Array[Int] = Array(0, 1, 2, 3, 4, 5)
@@ -58,4 +62,11 @@ object ArraysExercises extends App{
   // Iterating string array using map function
   println("\nIterating string array using map function\n")
   fruits.map(print)
+
+  // InPlace operations
+  // All mutable collections, including Arrays, have in-place versions of many common collection operations.
+  // These allow us to perform the operation on the mutable collection without having to make a transformed copy.
+  val numSeq:Array[Int] = Array(10, 20, 30)
+  numSeq.mapInPlace(_ / 2)
+  print("\nInPlace operations\n"); numSeq.foreach(print)
 }

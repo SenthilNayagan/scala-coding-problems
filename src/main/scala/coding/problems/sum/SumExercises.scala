@@ -6,7 +6,7 @@ class SumExercises {
    * Sum all numbers from 1 to n
    *
    * Time complexity: ?
-   * Space complexity: ?
+   * Space complexity: O(n) - Because with every call to the recursive function, the state is saved on the call stack.
    *
    * @param n upper range
    * @return sum of all numbers between 1 and n
