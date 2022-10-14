@@ -1,7 +1,5 @@
 package coding.problems.binarysearch
 
-import coding.problems.arrays.ArraysExercises.numbers
-
 import scala.annotation.tailrec
 
 class BinarySearch {

@@ -1,4 +1,4 @@
-package coding.problems.arrays
+package coding.problems.collections.arrays
 
 /**
  * Array exercises
@@ -73,6 +73,9 @@ object ArraysExercises extends App {
   numSeq.reduceLeft(_ + _)
   numSeq.reduceRight(_ + _)
 
+  // We can use sum function as shown below
+  numSeq.sum
+
   print("\n"); println(numSeq.fold(1)(_ + _))  // Adds 1 to the sum value.
   numSeq.foldLeft(1)(_ + _)  // Iterates from left
   numSeq.foldRight(1)(_ + _)  // Iterates from right
@@ -89,5 +92,34 @@ object ArraysExercises extends App {
   // class scala.collection.mutable.ArraySeq, which is a subclass of Seq.
   val a1: Array[Int] = Array(3, 5, 7, 6, 9)
   val seq: scala.collection.Seq[Int] = a1  // seq: collection.Seq[Int] = ArraySeq(3, 5, 7, 6, 9)
+
+  // Factory methods
+  Array.fill(3)(2)  // Array[Int] = Array(2, 2, 2)
+  Array.fill(3)("hello")  // Array[String] = Array("hello", "hello", "hello")
+
+  Array.tabulate(4)(n => s"Hello $n")  // Array[String] = Array("Hello 0", "Hello 1", "Hello 2", "Hello 3")
+
+  // Concatenating two arrays
+  Array(1, 2, 3) ++ Array(4, 5, 6)  // Array[Int] = Array(1, 2, 3, 4, 5, 6)
+
+  // take, drop and slice methods
+  // take - keep first two elements
+  Array(1, 2, 3, 4, 5).take(2)  // Array[Int] = Array(1, 2)
+  // drop - discard first two elements
+  Array(1, 2, 3, 4, 5).drop(2)  //Array[Int] = Array(3, 4, 5)
+  // slice - keep elements from index 1-4
+  Array(1, 2, 3, 4, 5).slice(1, 4)  // Array[Int] = Array(2, 3, 4)
+
+  // Remove all duplicates
+  val a = Array(1, 2, 3, 4, 5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8)
+  a.distinct  // Array[Int] = Array(1, 2, 3, 4, 5, 6, 7, 8)
+
+  a.toSet  // Converting to set removes all duplicates as well.
+
+  // groupBy method
+  val av = Array(1, 2, 3, 4, 5, 6, 7)
+  av.groupBy(_ % 2 == 0)  // Map[Boolean, Array[Int]] = Map(false -> Array(1, 3, 5, 7), true -> Array(2, 4, 6))
+  av.groupBy(_ % 2)  // Map[Int, Array[Int]] = Map(0 -> Array(2, 4, 6), 1 -> Array(1, 3, 5, 7))
+  av.groupBy(_ % 2).get(0)  // Option[Array[Int]] = Some(value = Array(2, 4, 6))
 
 }
