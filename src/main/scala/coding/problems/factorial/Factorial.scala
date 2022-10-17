@@ -1,6 +1,24 @@
 package coding.problems.factorial
 
+
+/**
+ * Factorial is a multiply of all natural numbers from the the given number down to 1.
+ * For example, factorial of 4 is 4 x 3 x 2 x 1 = 24
+ */
 class Factorial {
+
+  /**
+   * Finding factorial using reduce method
+   *
+   * Time complexity: ?
+   * Space complexity: ?
+   *
+   * @param n
+   * @return
+   */
+  def findFactorialUsingReduce(n: Int): Int = {
+    (1 to n).reduce(_ * _)
+  }
 
   /**
    * Finding factorial using recursive approach.
@@ -41,6 +59,7 @@ class Factorial {
 object Factorial extends App {
   val factorial = new Factorial
 
+  println(factorial.findFactorialUsingReduce(5))
   println(factorial.findFactorialUsingRecursive(5))
   println(factorial.findFactorialUsingBruteForce(5))
 }

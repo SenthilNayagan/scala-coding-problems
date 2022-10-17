@@ -9,6 +9,9 @@ object ArraysExercises extends App {
   // Declare array of integers
   var numbers: Array[Int] = Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
+  // Appending number
+  numbers :+ 10
+
   // Print all items of an array
   numbers.foreach(print)
 
@@ -122,4 +125,11 @@ object ArraysExercises extends App {
   av.groupBy(_ % 2)  // Map[Int, Array[Int]] = Map(0 -> Array(2, 4, 6), 1 -> Array(1, 3, 5, 7))
   av.groupBy(_ % 2).get(0)  // Option[Array[Int]] = Some(value = Array(2, 4, 6))
 
+  // Finding biggest number using reduce method
+  val someNums: Array[Int] = Array(2, 9, 4, 7, 5)
+  someNums.reduce(_ max _)  // Int = 9
+
+  // Group array
+  // Output: Map[Int, Int] = HashMap(5 -> 2, 1 -> 2, 6 -> 1, 2 -> 3, 7 -> 1, 3 -> 3, 8 -> 1, 4 -> 3)
+  a.groupBy(identity).mapValues(_.size).toMap
 }
