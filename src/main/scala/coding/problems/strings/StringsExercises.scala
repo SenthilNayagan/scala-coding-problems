@@ -22,10 +22,37 @@ class StringsExercises {
     }
     true
   }
+
+  /**
+   * Finding the counts of unique strings in a list of array strings as shown below:
+   *
+   * Input:
+   * List("Hello world", "hi", "how do you do", "i am fine", "hello there", "how are you")
+   *
+   * Output:
+   * Map (
+   * "hello" -> 2,
+   * "world" -> 1,
+   * "hi" -> 1,
+   * "how" -> 2,
+   * ..
+   * ..
+   * )
+   *
+   * List
+   *
+   * @return
+   */
+  def listofStringCounts(strings: List[String]): Map[String, Int] = {
+    strings.map(e => e.split(" ")).flatten.groupBy(e => e.toLowerCase).mapValues(_.size).toMap
+  }
 }
 
 object StringsExercises extends App {
   val stringExercises = new StringsExercises()
 
   println(stringExercises.isAllCharsUnique("hello"))
+
+  val strings = List("Hello world", "hi", "how do you do", "i am fine", "hello there", "how are you")
+  stringExercises.listofStringCounts(strings).foreach(println)
 }
