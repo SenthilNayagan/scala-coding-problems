@@ -79,4 +79,15 @@ object SumExercises extends App {
 
   println(sumExercises.sumUsingRecursion(5))
   println(sumExercises.sumUsingReduceMethod(5))
+
+  // Sum using fold methods
+  // List(1, 2, 3).foldLeft(0)(f) = f(f(f(0, 1), 2), 3)
+  // List(1, 2, 3).foldRight(0)(f) = f(1, f(2, f(3, 0)))
+
+  val l: List[Int] = List(2, 6, 1, 3)
+  l.fold(0)((x, y) => x + y)  // Int = 12
+  l.foldLeft(0)((x, y) => x + y)  // Int = 12
+  l.fold(0)(_ + _)  // Int = 12
+  l.foldRight(0)(_ + _)  // Int = 12
+
 }

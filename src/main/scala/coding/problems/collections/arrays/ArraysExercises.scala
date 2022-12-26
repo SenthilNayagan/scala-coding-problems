@@ -7,6 +7,8 @@ package coding.problems.collections.arrays
  */
 object ArraysExercises extends App {
   // Declare array of integers
+  // Note: Type Integer is just an alias for java.lang.Integer.
+  // Type Int is the Scala integer with the extra capabilities.
   var numbers: Array[Int] = Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
   // Appending number
@@ -83,6 +85,7 @@ object ArraysExercises extends App {
   numSeq.foldLeft(1)(_ + _)  // Iterates from left
   numSeq.foldRight(1)(_ + _)  // Iterates from right
 
+  // Scan method - Will give us intermediary sum value
   print(s"\n numSeq = $numSeq")
   // Source sequence = 1, 2, 3
   // scan output = 1, 2, 4, 7

@@ -1,5 +1,7 @@
 package coding.problems.collections.lists
 
+import scala.annotation.tailrec
+
 /**
  * List exercises.
  *
@@ -54,6 +56,25 @@ class ListExercises {
     case (n, _ :: tail) => findKthElement(n - 1, tail)
     case (_, Nil) => throw new NoSuchElementException
   }
+
+  /**
+   * Count the occurrences of a specific element in a List using tail-recursion.
+   *
+   * Note that @tailrec annotation needs to be added to the method. This tells the compiler to verify
+   * the code has been compiled with tail call optimization.
+   *
+   * @param ls given List
+   * @tparam T generic type
+   * @return number of occurrences in a List
+   */
+  def findLengthUsingTailRecursion[T](ls: List[T]): Int = {
+    @tailrec
+    def lengthTR(occurrence: Int, currentList: List[T]): Int = currentList match {
+      case Nil => occurrence
+      case _ :: tail => lengthTR(occurrence + 1, tail)
+    }
+    lengthTR(0, ls)
+  }
 }
 object ListExercises extends App {
   val list = new ListExercises
@@ -87,4 +108,12 @@ object ListExercises extends App {
 
   // Find Kth element in a List
   println(list.findKthElement(2, names))
+
+  // Count the occurrences of a specific element in a List
+  val myList: List[String] = List("John", "Joe", "Sam", "John")
+  println(myList.count(e => e == "John"))  // 2
+
+  // Find the length of a List
+  println(list.findLengthUsingTailRecursion(myList))
+
 }
